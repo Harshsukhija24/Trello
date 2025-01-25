@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Progressbar from "./Progressbar";
 import DeleteCheckList from "./DeleteCheckList";
 import AddCheckItem from "./AddCheckItem";
+
 const baseUrl = import.meta.env.VITE_BASE_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
 const apiToken = import.meta.env.VITE_API_TOKEN;
@@ -33,7 +34,7 @@ const CheckItem = ({ id }) => {
         setCheckItems(data);
         setProgress(calculateProgress(data));
       } catch (error) {
-        console.error(error);
+        throw new Error(error);
       }
     }
     getCheckItems();

@@ -1,12 +1,13 @@
 import { Box, Dialog, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import DeleteCard from "./DeleteCard";
-import CardList from "./CardList";
 import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
 const apiToken = import.meta.env.VITE_API_TOKEN;
+
+import DeleteCard from "./DeleteCard";
+import CardList from "./CardList";
 
 const DisplayCard = ({ id, triggerReload }) => {
   const [open, setOpen] = useState(false);
@@ -29,7 +30,7 @@ const DisplayCard = ({ id, triggerReload }) => {
         const data = await response.json();
         setCards(data);
       } catch (error) {
-        console.log("Error fetching cards:", error);
+        throw new Error("Error fetching cards:", error);
       }
     };
 

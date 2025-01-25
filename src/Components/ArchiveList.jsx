@@ -16,7 +16,7 @@ const ArchiveList = ({ id, triggerReload }) => {
       );
       triggerReload();
     } catch (error) {
-      console.error("Error archiving list:", error);
+      throw new Error("Error archiving list:", error);
     }
   }
 

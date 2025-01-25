@@ -17,7 +17,7 @@ const DeleteCard = ({ id, onDelete }) => {
       );
       onDelete();
     } catch (error) {
-      console.log("Error deleting card:", error);
+      throw new Error("Error deleting card:", error);
     }
   };
 

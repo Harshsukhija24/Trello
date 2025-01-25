@@ -17,7 +17,7 @@ const DeleteCheckList = ({ id, keyid, triggerReload }) => {
       );
       triggerReload();
     } catch (error) {
-      console.log("Error deleting card:", error);
+      throw new Error("Error deleting card:", error);
     }
   };
 

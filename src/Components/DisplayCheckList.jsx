@@ -1,11 +1,13 @@
 import { Box, Divider, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+
 import CheckItem from "./CheckItem";
 import DeleteCheckCard from "./DeleteCheckCard";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
 const apiToken = import.meta.env.VITE_API_TOKEN;
+
 const DisplayCheckList = ({ id }) => {
   const [checkList, setCheckList] = useState([]);
 
@@ -19,7 +21,7 @@ const DisplayCheckList = ({ id }) => {
         const data = await response.json();
         setCheckList(data);
       } catch (error) {
-        console.log(error);
+        throw new Error(error);
       }
     }
 

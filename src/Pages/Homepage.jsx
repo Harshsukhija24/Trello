@@ -2,16 +2,18 @@ import { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Box, Typography } from "@mui/material";
-import AddBoard from "../Components/AddBoard";
 import { useNavigate } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
 const apiToken = import.meta.env.VITE_API_TOKEN;
 
+import AddBoard from "../Components/AddBoard";
+
 const Homepage = () => {
   const Navigate = useNavigate();
   const [boardData, setBoardData] = useState([]);
+  const [reloadBoards, setReloadBoards] = useState(false);
 
   useEffect(() => {
     async function fetchBoard() {
@@ -23,16 +25,19 @@ const Homepage = () => {
         const data = await res.json();
         setBoardData(data);
       } catch (error) {
-        console.error("Error fetching board data:", error);
+        throw new Error("Error fetching board data:", error);
       }
     }
 
     fetchBoard();
-  }, [boardData]);
+  }, [reloadBoards]);
+  const handleReload = () => {
+    setReloadBoards((prev) => !prev);
+  };
 
   return (
     <>
-      <Typography variant="h3" sx={{ marginLeft: 15 }}>
+      <Typography variant="h3" sx={{ marginLeft: 5 }}>
         My boards
       </Typography>
 
@@ -40,13 +45,14 @@ const Homepage = () => {
         component="section"
         sx={{
           display: "flex",
-          marginLeft: 15,
-          marginTop: 10,
+          marginLeft: 5,
+          marginTop: 5,
+          justifyContent: "start",
           flexWrap: "wrap",
           gap: 3,
         }}
       >
-        <AddBoard />
+        <AddBoard handleReload={handleReload} />
         {boardData.length > 0
           ? boardData.map((board) => (
               <Card sx={{ borderRadius: 5 }} key={board.id}>

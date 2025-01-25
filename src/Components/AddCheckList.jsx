@@ -28,8 +28,7 @@ const AddCheckList = ({ id }) => {
 
       setName("");
     } catch (error) {
-      console.error("Error adding checklist:", error);
-      alert("Failed to add checklist. Please try again.");
+      throw new Error("Error adding checklist:", error);
     }
   };
 

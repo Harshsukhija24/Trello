@@ -1,9 +1,10 @@
 import { Card, CardContent, Typography, Dialog } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useState } from "react";
+
 import AddBoardDetail from "./AddBoardDetail";
 
-const AddBoard = () => {
+const AddBoard = ({ handleReload }) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -38,7 +39,7 @@ const AddBoard = () => {
       </Card>
 
       <Dialog open={open} onClose={handleClose} maxWidth="sm">
-        <AddBoardDetail handleClose={handleClose} />
+        <AddBoardDetail handleClose={handleClose} handleReload={handleReload} />
       </Dialog>
     </>
   );

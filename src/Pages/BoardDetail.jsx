@@ -29,7 +29,7 @@ const BoardDetail = () => {
         const data = await res.json();
         setAllList(data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        throw new Error("Error fetching data:", error);
       }
     }
 
@@ -47,8 +47,8 @@ const BoardDetail = () => {
         minHeight: "91vh",
         backgroundImage: `url("https://images.unsplash.com/photo-1737044280473-06976eb5fda5?ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzM3NDMyNjE1fA&ixlib=rb-4.0.3&w=2560&h=2048&q=90")`,
         backgroundSize: "cover",
-        backgroundRepeat: "no-repeat", 
-        backgroundPosition: "center", 
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
       }}
     >
       <Typography variant="h4" sx={{ marginBottom: 3, color: "white " }}>

@@ -21,7 +21,7 @@ const AddCheckItem = ({ id, triggerReload }) => {
       setName("");
       triggerReload();
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   }
 

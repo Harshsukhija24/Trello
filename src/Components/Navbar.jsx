@@ -28,6 +28,11 @@ const Navbar = () => {
               filter: "grayscale(104%) brightness(105%) contrast(100%)",
               alignItems: "center",
               gap: "10px",
+              marginLeft: "1.5rem",
+              width: {
+                xs: "5rem",
+                sm: "auto",
+              },
             }}
             color="inherit"
           >
@@ -58,6 +63,8 @@ const Navbar = () => {
                 alt="Trello-Logo"
                 style={{
                   width: "60px",
+                  marginLeft: "8rem",
+
                   height: "50px",
                   alignItems: "center",
                   justifyContent: "center",

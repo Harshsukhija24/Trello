@@ -26,7 +26,7 @@ const AddCard = ({ id, onCardAdded }) => {
       setCardName("");
       onCardAdded();
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   }
 

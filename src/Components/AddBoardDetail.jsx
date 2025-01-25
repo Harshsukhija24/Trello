@@ -5,7 +5,7 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
 const apiToken = import.meta.env.VITE_API_TOKEN;
 
-const AddBoardDetail = ({ handleClose }) => {
+const AddBoardDetail = ({ handleClose, handleReload }) => {
   const [boardName, setBoardName] = useState("");
 
   const addBoard = async () => {
@@ -24,8 +24,9 @@ const AddBoardDetail = ({ handleClose }) => {
       const data = await response.json();
       setBoardName("");
       handleClose();
+      handleReload();
     } catch (error) {
-      console.error("Error adding board:", error);
+      throw new Error("Error adding board:", error);
     }
   };
 
@@ -43,7 +44,7 @@ const AddBoardDetail = ({ handleClose }) => {
         color: "white",
       }}
     >
-      <Typography variant="h3" sx={{ marginBottom: 6 }}>
+      <Typography variant="h6" sx={{ marginBottom: 6 }}>
         Add New Board
       </Typography>
       <Typography sx={{ marginBottom: 2 }} variant="h6">
