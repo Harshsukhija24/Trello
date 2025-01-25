@@ -46,9 +46,9 @@ const BoardDetail = () => {
         overflowX: "scroll",
         minHeight: "91vh",
         backgroundImage: `url("https://images.unsplash.com/photo-1737044280473-06976eb5fda5?ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzM3NDMyNjE1fA&ixlib=rb-4.0.3&w=2560&h=2048&q=90")`,
-        backgroundSize: "cover", // Ensure the image covers the entire area
-        backgroundRepeat: "no-repeat", // Prevent image repetition
-        backgroundPosition: "center", // Center the image
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat", 
+        backgroundPosition: "center", 
       }}
     >
       <Typography variant="h4" sx={{ marginBottom: 3, color: "white " }}>
@@ -69,7 +69,6 @@ const BoardDetail = () => {
               marginRight: 2,
               marginBottom: 2,
               padding: 1,
-              // justifyContent: "start",
               alignItems: "space-between",
               minWidth: 250,
               minHeight: 150,
