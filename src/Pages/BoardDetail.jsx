@@ -35,9 +35,6 @@ const BoardDetail = () => {
 
     fetchDataByID();
   }, [id, reload]);
-  const handleNewList = (newList) => {
-    setAllList((prevList) => [...prevList, newList]);
-  };
 
   return (
     <Box
